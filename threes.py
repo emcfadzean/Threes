@@ -6,30 +6,13 @@
 
 import doctest
 
-def check(x, y, z):
-    sizeOrder(x,y,z);
-    print("{} {} {}".format(x,y,z));
-
-# z < x < y
-def sizeOrder(x, y, z):
-    """
-    Checks to see if inputs match the following condition: z < x < y
-    >>> sizeOrder(1,2,3)
-    False
-    >>> sizeOrder(2,3,1)
-    True
-    >>> sizeOrder(1,1,1)
-    False
-    """
-    if (z >= x or x >= y):
-        return False;
-    else:
-        return True;
-
-with open("primes.txt", "r") as file:
-    for line in file:
-        for word in line.split():
-            print(word);
+candidate = 1;
+#Produce x, y, and z so that z < x < y
+for y in range(1, 100):
+    for x in range(1, y):
+        for z in range(1, x):
+            print("{} {} {} {}".format(candidate, x, y, z));
+            candidate = candidate + 1;
     
 if __name__ == "__main__":
     doctest.testmod()
